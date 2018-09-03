@@ -17,7 +17,7 @@
   "author": "Grecia Gutierrez",
   "license": "ISC",
   "bin": {
-    "mdlinks": "app.js"
+    "md-links": "app.js"
   },
   "bugs": {
     "url": "https://github.com/Grecia2727/lim20181-Track-FE-markdown-list/issues"

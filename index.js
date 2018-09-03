@@ -4,12 +4,12 @@ const fs = require('fs');
 const path = require('path');
 const rutaURL = path.resolve(args[0]);
 
-
+  
 // Identificando e imprimiendo links de archivo md:
 // ================================================
-module.exports = mdLinks = (markdown) => {
+module.exports = mdLinks = (FileMarkdown) => {
   const urlRegex = /\[(.*?)\]\((.*?|(https?|ftp):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-]))\)/gi;
-  let arrayUrl = urlRegex.exec(markdown);
+  let arrayUrl = urlRegex.exec(FileMarkdown);
   console.log("esto es arrayUrl: " + arrayUrl);
   let linksFoundOfMarkdown = [];
   let arrlinksFoundOfMarkdown = [];
@@ -29,7 +29,7 @@ module.exports = mdLinks = (markdown) => {
       cantLinks = cantLinks + 1;
       i++;
     };
-  } while ((arrayUrl = urlRegex.exec(markdown)) !== null);
+  } while ((arrayUrl = urlRegex.exec(FileMarkdown)) !== null);
   console.log('\n\x1b[31m%s\x1b[34m', 'Los links encontrados son: \n');
   console.log(linksFoundOfMarkdown);
   console.log("\n Total de links: " + cantLinks)
