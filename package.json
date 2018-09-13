@@ -26,9 +26,6 @@
   "homepage": "https://github.com/Grecia2727/lim20181-Track-FE-markdown-list#readme",
   "dependencies": {
     "fs": "0.0.1-security",
-    "link-check": "^4.4.4",
-    "markdown-link-extractor": "^1.2.0",
-    "markdown-links-nwc": "^1.1.5",
     "node-fetch": "^2.2.0"
   },
   "devDependencies": {
