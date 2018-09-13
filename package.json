@@ -4,7 +4,7 @@
   "description": "crear libreria que valide links",
   "main": "app.js",
   "scripts": {
-    "test": "link",
+    "test": "jest --coverage",
     "start": "node index.js"
   },
   "repository": {
@@ -17,7 +17,8 @@
   "author": "Grecia Gutierrez",
   "license": "ISC",
   "bin": {
-    "md-links": "app.js"
+    "md-links": "app.js",
+    "stats": "stats.js"
   },
   "bugs": {
     "url": "https://github.com/Grecia2727/lim20181-Track-FE-markdown-list/issues"
