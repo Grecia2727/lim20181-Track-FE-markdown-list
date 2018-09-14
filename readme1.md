@@ -9,8 +9,11 @@ herramienta usando [Node.js](https://nodejs.org/), que lea y analice archivos
 
 Tópicos:
 
-- [Node.js](lññññorg/en/)
-- [Semver](https://semver.org/)
+
+- [Semver](https://semver.org/hhhhhhhhhhhhhhhhhhh)
+- [Path](https://nodejs.org/api/path.html)
 - [Path](https://nodejs.org/api/path.html)
 - [File System](https://nodejs.org/api/fs.html)
 - [marked](https://github.com/markedjs/marked)
+- [marked](https://github.com/markedjs/marked)
+

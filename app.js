@@ -12,7 +12,7 @@ let linksOfDirectory = [];
 
 //-------------------------------------------------------------------------------------------FUNCION VERIFICA SI ES UN DIRECTORIO O CARPETA
 const askFileOrDirectory = routeX => {
-  const ext = '.md';
+  const extension = '.md';
   const extName = path.extname(routeX);
   fs.stat(routeX, (error, stats) => {
     if (error) {
@@ -31,7 +31,7 @@ const askFileOrDirectory = routeX => {
           }
         })
       }
-      else if (stats.isFile() && ext === extName) {
+      else if (stats.isFile() && extension === extName) {
         linksOfDirectory = linksOfDirectory.concat(readFile(routeX));
       }
     }

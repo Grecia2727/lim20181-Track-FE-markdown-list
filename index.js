@@ -36,6 +36,6 @@ module.exports = mdLinks = (markdown) => {
   console.log("\n Total de links: " + cantLinks)
   return linksFoundOfMarkdown;
 };
-
 // ===========================================
 
+ 

@@ -3,9 +3,6 @@ const [, , ...args] = process.argv
 const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch')
-const linkCheck = require('link-check');
-
-var markdownLinkExtractor = require('markdown-link-extractor');
 const rutaURL = path.resolve(args[0]);
 // let arrlinksFoundOfMarkdown = [];
 let linkOk = 0;
