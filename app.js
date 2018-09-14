@@ -8,65 +8,35 @@ const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch')
 const rutaURL = path.resolve(args[0]);
-
+let linksOfDirectory = [];
 
 //-------------------------------------------------------------------------------------------FUNCION VERIFICA SI ES UN DIRECTORIO O CARPETA
-const checkIfFileOrFolder = paths => {
+const askFileOrDirectory = routeX => {
   const ext = '.md';
-  const extName = path.extname(paths);
-  fs.stat(paths, (error, stats) => {
+  const extName = path.extname(routeX);
+  fs.stat(routeX, (error, stats) => {
     if (error) {
       console.log(error);
     }
     else {
       if (stats.isDirectory()) {
-        fs.readdir(paths, 'utf8', (error, files) => {
+        fs.readdir(routeX, 'utf8', (error, files) => {
           if (error) {
             console.log(error);
           } else {
             files.forEach(element => {
-              checkIfFileOrFolder(paths + '/' + element);
+              askFileOrDirectory(routeX + '/' + element);
             });
 
           }
         })
-      } else if (stats.isFile() && ext===extName) {
-        links = links.concat(readFileMarkdown(paths));
-
+      }
+      else if (stats.isFile() && ext === extName) {
+        linksOfDirectory = linksOfDirectory.concat(readFile(routeX));
       }
     }
   });
 }
-
-
-// Lee la carpeta  =====================================
-// const readCarpet = (leeCarpeta) => {
-  // fs.readdir(rutaURL, (error, carpetas) => {
-  //   console.log("rutaUrl: " + rutaURL);
-  //   console.log(carpetas);
-  //   fs.stat(rutaURL, (error, stats) => {
-  //     if (error) {
-  //       console.log(error);
-  //     }
-  //     else {
-  //       if (stats.isDirectory()) {
-  //         fs.readdir(path, 'utf8', (error, files) => {
-  //           if (error) {
-  //             console.log(error);
-  //           } else {
-  //             for (const fileName in files) {
-  //               const element = files[fileName]
-  //               readCarpet(path + '/' + element);
-  //             }
-  //           }
-  //         })
-  //       } else if (stats.isFile() && path.indexOf('.md', -3) >= 0) {
-  //         links = links.concat(readFile(path));
-  //         console.log(links)
-  //       }
-  //     }
-  //   });
-  // }
 
 
 //Valida si es archivo MD en stats.js ==============================
@@ -132,7 +102,7 @@ fs.stat(args[0], function (err, stats) {
     else {
       if (stats.isDirectory()) {
         console.log(args[0] + " es una carpeta");
-        readCarpet();
+        askFileOrDirectory(args[0]);
 
       } else if (stats.isFile()) {
         console.log(args[0] + " es un archivo");
