@@ -2,7 +2,7 @@
   "name": "markdown",
   "version": "1.0.0",
   "description": "crear libreria que valide links",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
     "start": "node index.js"

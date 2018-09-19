@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch')
 const rutaURL = path.resolve(args[0]);
-// let arrlinksFoundOfMarkdown = [];
+
 let linkOk = 0;
 let cantLinks = 0;
 let linkBroken = 0;
@@ -24,8 +24,6 @@ module.exports = mdLinksStats = (FileMarkdownValidate) => {
       i++;
     };
   } while ((arrayUrl = urlRegex.exec(FileMarkdownValidate)) !== null);
-  // console.log('\n\x1b[31m%s\x1b[34m', 'Los links encontrados son: \n');
-  // console.log(arrlinksFoundOfMarkdown);
 
   let unicos = new Set(arrlinksFoundOfMarkdown);
   console.log("los link unicos son: ");
@@ -34,5 +32,4 @@ module.exports = mdLinksStats = (FileMarkdownValidate) => {
   console.log("Links Uniques: ", unicos.size);
   console.log("Links Repetidos: " + (cantLinks - unicos.size));
   return JSON.stringify(arrlinksFoundOfMarkdown);
-
 }

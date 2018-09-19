@@ -3,7 +3,7 @@ const [, , ...args] = process.argv
 const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch')
-const rutaURL = path.resolve(args[0]);
+const rutaURL = path.resolve(args[0]); 
 
 
 // Identificando e imprimiendo links de archivo md:
@@ -11,8 +11,6 @@ const rutaURL = path.resolve(args[0]);
 module.exports = mdLinks = (markdown) => {
   const urlRegex = /\[(.*?)\]\((.*?|(https?|ftp):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-]))\)/gi;
   let arrayUrl = urlRegex.exec(markdown);
-  // console.log("esto es arrayUrl: " + arrayUrl);
-  // console.log(arrayUrl.length)
   let linksFoundOfMarkdown = [];
   let linkOk = 0;
   let cantLinks = 0;

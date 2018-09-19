@@ -8,16 +8,22 @@ let arrlinksFoundOfMarkdown = [];
 let linkOk = 0;
 let cantLinks = 0;
 let linkBroken = 0;
-let linkUnique = 0;
 
 // Imprimiendo links de archivo md:
 // ================================================
-module.exports = mdLinksValidate = (FileMarkdown2) => {
+module.exports = mdLinksStats = (FileMarkdown2) => {
   const urlRegex = /\[(.*?)\]\((.*?|(https?|ftp):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-]))\)/gi;
   let arrayUrl = urlRegex.exec(FileMarkdown2);
 
   do {
     for (let i = 1; i < (arrayUrl.length) / 2; i++) {
+      // let found = arrlinksFoundOfMarkdown.find((item) => {
+      //   return item.href === arrayUrl[i + 1];
+      // });
+      // console.log(!!found); 
+      // if(!!found){
+      // }
+
       arrlinksFoundOfMarkdown.push(
         {
           href: arrayUrl[i + 1],
@@ -25,14 +31,11 @@ module.exports = mdLinksValidate = (FileMarkdown2) => {
           file: rutaURL
         }
       );
-      cantLinks = cantLinks + 1;
+      // cantLinks = cantLinks + 1;
       i++;
     };
   } while ((arrayUrl = urlRegex.exec(FileMarkdown2)) !== null);
-  // console.log('\n\x1b[31m%s\x1b[34m', 'Los links encontrados son: \n');
-  // console.log(arrlinksFoundOfMarkdown);
-  console.log("\n Total de links: " + cantLinks)
-  return JSON.stringify(arrlinksFoundOfMarkdown);
+  return arrlinksFoundOfMarkdown;
 }
 
 //----------------------------------------------------------------
@@ -56,14 +59,32 @@ const validarStatus = (arrLinks) => {
           obj.statusText = 'Fail'
           linkBroken++
         }
+        // console.log("obj")
         console.log(obj)
       })
-      console.log('\n\x1b[31m%s\x1b[34m', 'El Resultado es:')
+
+  
+      //   const iterable = arrlinksFoundOfMarkdown[href].filter(element => element.length)
+      //   iterable.forEach(eLinkUnique => {
+      //     let unicos = new Set(eLinkUnique);
+      //     console.log("solo Únicos: " + unicos);
+      //     console.log("Links Únicos: " + unicos.size);
+      //   });
+
+      console.log('\n\x1b[31m%s\x1b[34m', 'El Resultado es total de LINKS, UNICOS y ROTOS:')
       console.log("\nTotal Links : " + arrLinks.length);
-      console.log("Links OK: " + linkOk);
       console.log("Links Rotos: " + linkBroken);
+      console.log("Links Unicos: " + arrLinks.reduce((prev, item) => {
+       if(prev.indexOf(item.href) === -1){
+        return prev.concat(item.href);
+       } 
+       return prev;
+      }, []).length);
+
     });
 }
 setTimeout(() => {
-  validarStatus(arrlinksFoundOfMarkdown)
+  validarStatus(arrlinksFoundOfMarkdown).then(result => {
+
+  })
 }, 5000);

@@ -39,6 +39,22 @@ const askFileOrDirectory = routeX => {
 }
 
 
+//Valida si es archivo MD en statsvalidate.js =====================
+const validateExtMDStatsValidate = (routeX) => {
+  if (path.extname(routeX) === '.md') {
+    console.log(routeX + ' Es archivo md');
+    readFileStatsValidate(routeX) 
+  } else {
+    console.log(args[0] + ' NO es un archivo md');
+  }
+}    
+//Lee archivo en statsvalidate.js ==================================
+const readFileStatsValidate = (routeX) => {
+  const mdLinksStats = require('./statsvalidate.js');
+  const readFileDifferents = fs.readFileSync(routeX).toString();
+  let links = mdLinksStats(readFileDifferents);
+}
+
 //Valida si es archivo MD en stats.js ==============================
 const validateExtMDStats = (routeX) => {
   if (path.extname(routeX) === '.md') {
@@ -55,7 +71,7 @@ const readFileStats = (routeX) => {
   let links = mdLinksStats(readFileDifferents);
 }
 
-//Valida si es archivo MD en Validate.js ==============================
+//Valida si es archivo MD en Validate.js =============================
 const validateExtMDValidate = (routeX) => {
   if (path.extname(routeX) === '.md') {
     console.log(routeX + ' Es archivo md');
@@ -64,7 +80,7 @@ const validateExtMDValidate = (routeX) => {
     console.log(args[0] + ' NO es un archivo md');
   }
 }
-//Lee archivo en Validate.js ===========================================
+//Lee archivo en Validate.js ========================================
 const readFileValidate = (routeX) => {
   const mdLinksValidate = require('./validate.js');
   const readFileDifferents = fs.readFileSync(routeX).toString();
@@ -113,15 +129,31 @@ fs.stat(args[0], function (err, stats) {
       }
     }
 
-  } else if (args[1] === '--validate') {
-    console.log("Aquí validaremos cada link si está Ok o ROTO")
+  } else if (args[1] === '--validate' && args[2] === undefined) {
+    console.log("--------------------------------------------------------")
+    console.log("Aquí validaremos el STATUS de cada link: Si es OK o ROTO")
+    console.log("--------------------------------------------------------")
     validateExtMDValidate(args[0]);
 
-  } else if (args[1] === '--stats') {
-    console.log("Aquí validaremos la cantidad de Total de LINKS, UNICOS, y ROTOS")
+  } else if (args[1] === '--stats'  && args[2] === undefined) {
+    console.log("--------------------------------------------------------")
+    console.log("Aquí validaremos el Total de LINKS, y el total de ÚNICOS")
+    console.log("--------------------------------------------------------")
     validateExtMDStats(args[0]);
-  }
-  else {
+
+  } else if (args[1] === '--stats' && args[2] === '--validate') {
+    console.log("---------------------------------------------------")
+    console.log("Aquí validaremos el Total de LINKS, UNICOS, y ROTOS")
+    console.log("---------------------------------------------------")
+    validateExtMDStatsValidate(args[0]);
+
+  } else if (args[1] === '--validate' && args[2] === '--stats') {
+    console.log("---------------------------------------------------")
+    console.log("Aquí validaremos el Total de LINKS, UNICOS, y ROTOS")
+    console.log("---------------------------------------------------")
+    validateExtMDStatsValidate(args[0]);
+
+  } else {
     console.log("el comando a ingresar debe ser: --validate o --stats")
     console.log("La forma correcta de ingresar los comandos son:")
     console.log("\n========================================")
