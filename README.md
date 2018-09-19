@@ -62,6 +62,8 @@ las siguientes propiedades:
 
 ##### `Cuando la ruta corresponde a una carpeta`
 
+La librería busca todos los links que hay en los archivos y subcarpetas de la ruta que hemos ingresado.
+
 ![validate](https://github.com/Grecia2727/lim20181-Track-FE-markdown-list/blob/master/img/index_carpeta.PNG)
 <br>
 ##### `Cuando la ruta corresponde a un archivo MD`
