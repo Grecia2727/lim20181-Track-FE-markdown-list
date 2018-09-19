@@ -17,13 +17,6 @@ module.exports = mdLinksStats = (FileMarkdown2) => {
 
   do {
     for (let i = 1; i < (arrayUrl.length) / 2; i++) {
-      // let found = arrlinksFoundOfMarkdown.find((item) => {
-      //   return item.href === arrayUrl[i + 1];
-      // });
-      // console.log(!!found); 
-      // if(!!found){
-      // }
-
       arrlinksFoundOfMarkdown.push(
         {
           href: arrayUrl[i + 1],
@@ -31,7 +24,6 @@ module.exports = mdLinksStats = (FileMarkdown2) => {
           file: rutaURL
         }
       );
-      // cantLinks = cantLinks + 1;
       i++;
     };
   } while ((arrayUrl = urlRegex.exec(FileMarkdown2)) !== null);
@@ -59,17 +51,8 @@ const validarStatus = (arrLinks) => {
           obj.statusText = 'Fail'
           linkBroken++
         }
-        // console.log("obj")
-        console.log(obj)
+         console.log(obj)
       })
-
-  
-      //   const iterable = arrlinksFoundOfMarkdown[href].filter(element => element.length)
-      //   iterable.forEach(eLinkUnique => {
-      //     let unicos = new Set(eLinkUnique);
-      //     console.log("solo Únicos: " + unicos);
-      //     console.log("Links Únicos: " + unicos.size);
-      //   });
 
       console.log('\n\x1b[31m%s\x1b[34m', 'El Resultado es total de LINKS, UNICOS y ROTOS:')
       console.log("\nTotal Links : " + arrLinks.length);
@@ -83,8 +66,8 @@ const validarStatus = (arrLinks) => {
 
     });
 }
+
 setTimeout(() => {
   validarStatus(arrlinksFoundOfMarkdown).then(result => {
-
   })
 }, 5000);

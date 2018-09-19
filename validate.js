@@ -29,8 +29,6 @@ module.exports = mdLinksValidate = (FileMarkdown2) => {
       i++;
     };
   } while ((arrayUrl = urlRegex.exec(FileMarkdown2)) !== null);
-  // console.log('\n\x1b[31m%s\x1b[34m', 'Los links encontrados son: \n');
-  // console.log(arrlinksFoundOfMarkdown);
   console.log("\n Total de links: " + cantLinks)
   return JSON.stringify(arrlinksFoundOfMarkdown);
 }
