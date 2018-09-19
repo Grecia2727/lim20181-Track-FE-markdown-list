@@ -1,16 +1,12 @@
 #!/usr/bin/env node
 const [, , ...args] = process.argv
-// console.log(`hola mundo ${args}`)
-console.log(args)
-console.log("========")
-
 const fs = require('fs');
 const path = require('path');
 const fetch = require('node-fetch')
 const rutaURL = path.resolve(args[0]);
 let linksOfDirectory = [];
 
-//-------------------------------------------------------------------------------------------FUNCION VERIFICA SI ES UN DIRECTORIO O CARPETA
+//Valida si es un ARCHIVO o CARPETA (Realiza Recursividad) =============
 const askFileOrDirectory = routeX => {
   const extension = '.md';
   const extName = path.extname(routeX);
@@ -42,7 +38,6 @@ const askFileOrDirectory = routeX => {
 //Valida si es archivo MD en statsvalidate.js =====================
 const validateExtMDStatsValidate = (routeX) => {
   if (path.extname(routeX) === '.md') {
-    console.log(routeX + ' Es archivo md');
     readFileStatsValidate(routeX) 
   } else {
     console.log(args[0] + ' NO es un archivo md');
@@ -58,7 +53,6 @@ const readFileStatsValidate = (routeX) => {
 //Valida si es archivo MD en stats.js ==============================
 const validateExtMDStats = (routeX) => {
   if (path.extname(routeX) === '.md') {
-    console.log(routeX + ' Es archivo md');
     readFileStats(routeX)
   } else {
     console.log(args[0] + ' NO es un archivo md');
@@ -74,7 +68,6 @@ const readFileStats = (routeX) => {
 //Valida si es archivo MD en Validate.js =============================
 const validateExtMDValidate = (routeX) => {
   if (path.extname(routeX) === '.md') {
-    console.log(routeX + ' Es archivo md');
     readFileValidate(routeX)
   } else {
     console.log(args[0] + ' NO es un archivo md');
@@ -90,7 +83,6 @@ const readFileValidate = (routeX) => {
 //Valida si es archivo MD en index.js  ==============================
 const validateExtMD = (routeX) => {
   if (path.extname(routeX) === '.md') {
-    console.log(routeX + ' Es archivo md');
     readFile(routeX);
   } else {
     console.log(routeX + ' NO es un archivo md');
