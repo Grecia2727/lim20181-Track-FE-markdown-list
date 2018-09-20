@@ -29,8 +29,13 @@ module.exports = mdLinks = (markdown) => {
       i++;
     };
   } while ((arrayUrl = urlRegex.exec(markdown)) !== null);
-  console.log('\n\x1b[31m%s\x1b[34m', 'Los links encontrados son: \n');
-  console.log(linksFoundOfMarkdown);
+  console.log('\n\x1b[31m%s\x1b[34m', 'Los links encontrados son: ');
+  // console.log(linksFoundOfMarkdown);
+
+  linksFoundOfMarkdown.forEach(element => {
+   console.log(`${element.href}\t${element.text}\t${element.file}`)    
+  });
+
   console.log("\n Total de links: " + cantLinks)
   return linksFoundOfMarkdown;
 };

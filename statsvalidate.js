@@ -11,7 +11,7 @@ let linkBroken = 0;
 
 // Imprimiendo links de archivo md:
 // ================================================
-module.exports = mdLinksStats = (FileMarkdown2) => {
+module.exports = mdLinks = (FileMarkdown2) => {
   const urlRegex = /\[(.*?)\]\((.*?|(https?|ftp):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-]))\)/gi;
   let arrayUrl = urlRegex.exec(FileMarkdown2);
 
@@ -51,8 +51,12 @@ const validarStatus = (arrLinks) => {
           obj.statusText = 'Fail'
           linkBroken++
         }
-         console.log(obj)
+        return obj
       })
+
+      arrayOfObjects.forEach(element => {
+        console.log(`${element.href}\t${element.text}\t${element.file}\t${element.status}\t${element.statusText}`)    
+      });
 
       console.log('\n\x1b[31m%s\x1b[34m', 'El Resultado es total de LINKS, UNICOS y ROTOS:')
       console.log("\nTotal Links : " + arrLinks.length);

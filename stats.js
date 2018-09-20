@@ -5,7 +5,7 @@ const path = require('path');
 
 // Identificando e imprimiendo links de archivo md:
 // ================================================
-module.exports = mdLinksStats = (FileMarkdownValidate) => {
+module.exports = mdLinks = (FileMarkdownValidate) => {
   let arrlinksFoundOfMarkdown = [];
   const urlRegex = /\[(.*?)\]\((.*?|(https?|ftp):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-]))\)/gi;
   let arrayUrl = urlRegex.exec(FileMarkdownValidate);
