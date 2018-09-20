@@ -6,9 +6,7 @@ const fetch = require('node-fetch')
 const rutaURL = path.resolve(args[0]);
 let arrlinksFoundOfMarkdown = [];
 let linkOk = 0;
-let cantLinks = 0;
 let linkBroken = 0;
-let linkUnique = 0;
 
 // Imprimiendo links de archivo md:
 // ================================================
@@ -25,11 +23,9 @@ module.exports = mdLinksValidate = (FileMarkdown2) => {
           file: rutaURL
         }
       );
-      cantLinks = cantLinks + 1;
       i++;
     };
   } while ((arrayUrl = urlRegex.exec(FileMarkdown2)) !== null);
-  console.log("\n Total de links: " + cantLinks)
   return JSON.stringify(arrlinksFoundOfMarkdown);
 }
 
