@@ -50,8 +50,7 @@ Y todo lo relevante para que cualquier developer que quiera usar tu librería pu
 
 ##### Valor de retorno
 
-La función debe retornar una promesa (`Promise`) que resuelva a un arreglo
-(`Array`) de objetos (_Object_), donde cada objeto representa un link y contiene
+La función debe retornar un arreglo (`Array`) de objetos (_Object_), donde cada objeto representa un link y contiene
 las siguientes propiedades:
 
 - `href`: URL encontrada.
@@ -68,11 +67,13 @@ La librería busca todos los links que hay en los archivos y subcarpetas de la r
 <br>
 ##### `Cuando la ruta corresponde a un archivo MD`
 
+Devuelve los links encontrados dentro del archivo MD.
+
 ![validate](https://github.com/Grecia2727/lim20181-Track-FE-markdown-list/blob/master/img/index_Archivo.PNG)
 <br>
 ##### `--validate`
 
-Si pasamos la opción `--validate`, el módulo debe hacer una petición HTTP para
+Si pasamos la opción `--validate`, el módulo hace una petición HTTP para
 averiguar si el link funciona o no. Si el link resulta en una redirección a una
 URL que responde ok, entonces consideraremos el link como ok.
 
@@ -109,6 +110,6 @@ para usarlo programáticamente.
       lines, y branches.
 - [ ] Pasa tests (y linters) (`npm test`).
 
-![md-links](https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg)
-
+![md-links](https://github.com/Grecia2727/lim20181-Track-FE-markdown-list/blob/master/img/test1.PNG)
 <br>
+![md-links](https://github.com/Grecia2727/lim20181-Track-FE-markdown-list/blob/master/img/test2.PNG)
