@@ -20,6 +20,7 @@ module.exports = mdLinks = (FileMarkdownValidate) => {
   let unicos = new Set(arrlinksFoundOfMarkdown);
   console.log("los link unicos son: ");
   console.log(unicos);
+  console.log('\n\x1b[31m%s\x1b[34m', 'El Resultado es:')
   console.log("\nTotal de links: " + arrlinksFoundOfMarkdown.length)
   console.log("Links Uniques: ", unicos.size);
   console.log("Links Repetidos: " + (arrlinksFoundOfMarkdown.length - unicos.size));
