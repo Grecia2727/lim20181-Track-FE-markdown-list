@@ -17,21 +17,6 @@ herramienta usando [Node.js](https://nodejs.org/), que lea y analice archivos
 en formato `Markdown`, para verificar los links que contengan y reportar
 algunas estadísticas.
 
-![md-links](https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg)
-
-
-### Documentación requerida
-
-En el archivo _README_ de tu proyecto tendrás que incluir:
-
-- Descripción general de la librería.
-- Instrucciones de instalación.
-- Versiones de la librería.
-- Documentación de la Librería (Features, link de Demo, test, etc...).
-- Ejemplos (_snippets_) de uso.
-
-Y todo lo relevante para que cualquier developer que quiera usar tu librería pueda hacerlo sin inconvenientes
-
 ### Archivos del proyecto
 
 - `README.md` con descripción del módulo, instrucciones de instalación, uso y
@@ -48,7 +33,7 @@ Y todo lo relevante para que cualquier developer que quiera usar tu librería pu
 - `test/md-links.spec.js` debe contener los tests unitarios para la función
   `mdLinks()`tu inplementación debe pasar estos tets.
 
-##### Valor de retorno
+#### Valor de retorno
 
 La función debe retornar un arreglo (`Array`) de objetos (_Object_), donde cada objeto representa un link y contiene
 las siguientes propiedades:
